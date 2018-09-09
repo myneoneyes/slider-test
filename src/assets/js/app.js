@@ -35,13 +35,9 @@ function next() {
     changeFocus(focusedNum);
 }
 
-document.getElementById("sliderPrev").onclick = function () {
-    prev();
-};
+document.getElementById("sliderPrev").onclick = prev;
 
-document.getElementById("sliderNext").onclick = function () {
-    next();
-};
+document.getElementById("sliderNext").onclick = next;
 
 document.onkeydown = function () {
     var e = window.event;

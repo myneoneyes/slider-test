@@ -15,7 +15,7 @@ function changeFocus(focusedNum) {
 
 var sliderLength = document.getElementsByClassName("slider__img").length;
 
-document.getElementById("sliderPrev").onclick = function () {
+function prev() {
     var focusedNum = checkFocus();
     if (focusedNum === 1) {
         focusedNum = sliderLength;
@@ -23,9 +23,9 @@ document.getElementById("sliderPrev").onclick = function () {
         focusedNum--;
     }
     changeFocus(focusedNum);
-};
+}
 
-document.getElementById("sliderNext").onclick = function () {
+function next() {
     var focusedNum = checkFocus();
     if (focusedNum === sliderLength) {
         focusedNum = 1;
@@ -33,7 +33,26 @@ document.getElementById("sliderNext").onclick = function () {
         focusedNum++;
     }
     changeFocus(focusedNum);
+}
+
+document.getElementById("sliderPrev").onclick = function () {
+    prev();
 };
+
+document.getElementById("sliderNext").onclick = function () {
+    next();
+};
+
+document.onkeydown = function () {
+    var e = window.event;
+    if (e.keyCode == 37) {
+        prev();
+    } else if (e.keyCode == 39) {
+        next();
+    } else {
+        return;
+    }
+}
 
 document.getElementsByClassName("slider__points")[0].onclick = function () {
     if (event.target.tagName !== 'INPUT') return;
